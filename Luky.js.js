@@ -1,44 +1,22 @@
-function number() {
-let n = document.getElementById('st1').value;
-let m =Number(Math.random());
-
-
-var count = 0;
-var numberClick = document.getElementById('st1');
-var displayCount = document.getElementById('st1');
-numberClick.onclick = function(){
-  count++;
-  if (count > 3) {
-      alert("Dự đoán sai r ")
-  }
-
+let count = 0;
+let luckyNumber = parseInt(Math.random() * 10 + 1);
+console.log(luckyNumber);
+let guess;
+localStorage.setItem('onCount',count);
+function check() {
+        guess = Number(document.getElementById("nhap-so").value);
+        if (guess === luckyNumber) {
+            document.getElementById('ketqua').innerHTML =`Chúc mừng bạn! Số may mắn là ${luckyNumber}`;
+        }
+        else {
+            document.getElementById('nhap-so').value = '';
+        }
 }
-
-
-
-
-if(n >10 ){
-    alert('Xin nhập lại')
-
-}
-else if ( n<0) {
-
-    alert("xin nhập lại")
-}
-else if( n === 3 ){
-
-    document.getElementById('ketqua').innerHTML =`Bạn đã trúng thưởng`
-}
-else if (n !== 3 ){
-
-    document.getElementById('ketqua').innerHTML= `Ket qua xo so la : ${3}`  ;
-
-}
-
-
-
-
-
+function onCount() {
+    count++;
+    if (count > 2 && guess!== luckyNumber) {
+        document.getElementById('ketqua').innerHTML =` Bạn thua. Số may mắn là ${luckyNumber}`;
+    }
 }
 
 
